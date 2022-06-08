@@ -1,0 +1,30 @@
+.card {
+    width: 18rem;
+    height: 20rem;
+    background: var(--gradient-top-right);
+    margin: 2rem;
+    transition: .4s all ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    position: static;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 5px 8px var(--shadow-primary);
+}
+
+.bigCard {
+    width: 50rem;
+    height: 30rem;
+    background: var(--gradient-top-right);
+    position: absolute;
+    border-radius: 10px;
+    transition: .4s all ease-in-out;
+    padding: 2rem;
+    cursor: pointer;
+    box-shadow: 10px 5px 8px var(--shadow-primary);
+    overflow: unset;
+}

@@ -1,5 +1,27 @@
+:root {
+  --background-primary: #ffffff;
+  --header-primary: #dac0a6;
+  --shadow-primary: rgba(156, 149, 129, 0.664);
+  --header-color: #732e24;
+  --border-color: #a68f7d;
+  --text-color-primary: rgb(36, 54, 54);
+  --text-color-secondary: rgb(219, 226, 226);
+  --link-color: #732e24;
+  --link-color-light: #ebe2d9;
+  --hover-color-light: #dac0a6; 
+  --hover-color: #bb4430ff;
+  --semi-red: #a57b76;
+  --semi-light: #d9c6b1;
+  --box-primary: #309238c9;
+  --box-secondary: rgb(189, 96, 80);
+  --gradient-bottom-left: -webkit-linear-gradient(315deg, #272d2dff, var(--header-color), #bb4430ff);
+  --gradient-top-right: linear-gradient(135deg, var(--semi-red), var(--semi-light));
+  --gradient-top: linear-gradient(0deg, var(--text-color-primary), var(--header-color), var(--text-color-primary));
+}
+
 html,
 body {
+  background-color: var(--link-color);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -7,10 +29,25 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-color);
 }
 
 * {
   box-sizing: border-box;
+  
+}
+
+h1 {
+  background: var(--gradient-top);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 3rem;
 }
