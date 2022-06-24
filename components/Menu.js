@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 export const Menu =({
 isOpen = false,
-  width = 30,
-  height = 30,
+  width = 25,
+  height = 25,
   strokeWidth = 1,
-  color = '#732e24',
+  color = '#dac0a6',
   transition = null,
   lineProps = null,
 }, props) => {
@@ -48,7 +48,6 @@ isOpen = false,
         strokeWidth: strokeWidth,
         vectorEffect: "non-scaling-stroke",
         initial: "closed",
-        lineHeight: 0.5,
         animate: variant,
         transition,
         ...lineProps

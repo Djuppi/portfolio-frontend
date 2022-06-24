@@ -1,9 +1,5 @@
 .container {
     width: 100%;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: .5fr 2fr;
     text-align: center;
     position: absolute;
     align-items: center;
@@ -13,36 +9,36 @@
     border: 1.5px double var(--border-color);
 }
 
-.container h1 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;  
-    grid-row-end: 1;
-    text-align: center;  
+.main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: .1fr 1fr;
 }
 
-.container h2 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    text-align: center;
-    line-height: 1.5;
+.name {
+    display: flex;
+    justify-self: flex-start;
+    align-self: start;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 2rem 0;
 }
 
-.container p {
-    font-size: 1.2rem;
-}
+.name img {
+    background-color: var(--header-primary);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    align-self: center;
+    margin: 0 1rem 0 0;
 
-.container .right {
-    grid-column-start: 3;
-    grid-row-start: 2;
-    text-align: right;
-    line-height: 1.5;
 }
 
 .menuButton {
     display: flex;
     justify-self: flex-end;
+    grid-row: 1;
     grid-column: 3;
     align-self: flex-start;
     margin: 2rem;
@@ -63,14 +59,20 @@
 }
 
 .menu ul li a {
-    color: var(--link-color-light);
+    color: var(--link-color-dark);
     transition: all .2s ease;
+    font-size: 2rem;
 }
 
 .menu ul li a:hover {
-    color: var(--hover-color-light);
+    color: var(--hover-color-dark);
 }
 
 .chosenPage {
     text-decoration: underline;
+}
+
+.footer {
+    border-top: 1px solid var(--border-color);
+    
 }

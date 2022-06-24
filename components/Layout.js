@@ -6,6 +6,7 @@ import Header from './Header';
 import styles from '@/styles/Layout.module.css';
 import { motion } from 'framer-motion';
 import { Menu } from './Menu';
+import Footer from './Footer';
 
 const variants = {
     open: { x: -300, y: 100 },
@@ -26,7 +27,9 @@ export const Layout = ({title, description, keywords, children}) => {
     const [isOpen, toggleOpen] = useState(false);
     
     return (
+        <>
         <div className={styles.menu}>
+            
             <ul>
             <li onClick={() => toggleOpen(false)} className={title === "Home" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
                 <li onClick={() => toggleOpen(false)} className={title === "Projects" ? styles.chosenPage : null}><Link href="/projects">Projects</Link></li>
@@ -41,10 +44,12 @@ export const Layout = ({title, description, keywords, children}) => {
                     <meta name='description' content={description} />
                     <meta name='keywords' content={keywords} />
                 </Head>
-                
-                <main 
-                    className={styles.container}
-                >
+                <div className={styles.container}>
+                <main className={styles.main}>
+                    <div className={styles.name}>
+                        <img src='/assets/img/aske_thump.jpg' alt='' />
+                        <p>Aske Djupnes</p>
+                    </div>
                     <motion.div 
                         onClick={() => toggleOpen(!isOpen)} 
                         style={menuStyle} 
@@ -58,7 +63,12 @@ export const Layout = ({title, description, keywords, children}) => {
                     </motion.div>
                     {children}
                 </main>
+                <footer className={styles.footer}>
+                    <Footer />
+                </footer>
+                </div>
             </motion.div>
         </div>
+        </>
     )
 }

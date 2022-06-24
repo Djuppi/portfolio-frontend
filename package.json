@@ -13,10 +13,26 @@
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.4.0",
     "react-intersection-observer": "^8.33.1"
   },
   "devDependencies": {
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Djuppi/portfolio-frontend.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "djuppi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Djuppi/portfolio-frontend/issues"
+  },
+  "homepage": "https://github.com/Djuppi/portfolio-frontend#readme"
 }

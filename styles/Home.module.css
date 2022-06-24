@@ -1,5 +1,70 @@
 .container {
-  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  text-align: left;
+  margin: 5rem;
+  grid-column: 2;
+}
+
+.infoContainer, .aboutContainer, .projectContainer {
+  opacity: 0;
+}
+
+.headerContainer h1 {
+  font-size: 3rem;
+  margin: 0;
+  opacity: 0;
+}
+
+.headerContainer h2 {
+  margin: 0;
+  font-size: 5rem;
+  opacity: 0;
+}
+
+.headerContainer p {
+  margin: 0;
+  font-size: 3rem;
+  opacity: 0;
+}
+
+.infoContainer {
+  margin: 5rem 0;
+  width: 70%;
+}
+
+.infoContainer p {
+  font-size: 1.6rem;
+}
+
+.aboutContainer h3 {
+  font-size: 3rem;
+  color: var(--header-primary);
+}
+
+.aboutContainer p {
+  font-size: 1.6rem;
+}
+
+.projectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: end;
+  margin: 5rem 0;
+}
+
+.projectContainer h4 {
+  font-size: 3rem;
+  color: var(--header-primary);
+  text-align: center;
+}
+
+.projectContainer .projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .box {
