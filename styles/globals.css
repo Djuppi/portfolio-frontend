@@ -5,7 +5,7 @@
   --header-color: #f5c3ae;
   --border-color: #a68f7d;
   --text-color-primary: rgb(255, 255, 255);
-  --text-color-secondary: rgb(219, 226, 226);
+  --text-color-secondary: rgba(255, 255, 255, 0.766);
   --link-color: #dac0a6;
   --link-color-dark: var(--background-primary);
   --link-color-light: #ebe2d9;
@@ -14,12 +14,15 @@
   --hover-color: #bb4430ff;
   --linkedIn-color: #0a66c2;
   --semi-red: #a57b76;
+  --semi-red-hover: #a57b76e9;
   --semi-light: #d9c6b1;
+  --semi-light-hover: #d9c6b1e1;
   --box-primary: #309238c9;
   --box-secondary: rgb(189, 96, 80);
   --gradient-bottom-left: -webkit-linear-gradient(315deg, #272d2dff, var(--header-color), #bb4430ff);
   --gradient-top-right: linear-gradient(135deg, var(--semi-red), var(--semi-light));
   --gradient-top: linear-gradient(0deg, var(--text-color-primary), var(--header-color), var(--text-color-primary));
+  --gradient-top-light: linear-gradient(135deg, var(--semi-red-hover), var(--semi-light-hover));;
 
   --spacer: 10px;
 }

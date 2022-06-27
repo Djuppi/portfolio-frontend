@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from '@/styles/ProjectCard.module.css';
+import cls from "classnames";
 
 const squareVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: .2 } },
@@ -18,16 +19,13 @@ export const ProjectCard = ({id, chosen, setChosen, project}) => {
   }, [controls, inView]);
 
     return (
-      <motion.div 
+      <div 
         ref={ref} 
-        className={chosen === id ? styles.bigCard : styles.card} 
+        className={styles.card} 
         onClick={() => setChosen(chosen === id ? 0 : id)}
-        animate={controls}
-        initial="hidden"
-        variants={squareVariants}
       >
           {project.name}
-          <img src={project.homepageImage && project.homepageImage} alt="" />
-      </motion.div>
+          <img className={styles.cardImg} src={project.homepageImage && project.homepageImage} alt="" />
+      </div>
     )
   }

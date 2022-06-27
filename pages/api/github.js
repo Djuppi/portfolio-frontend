@@ -1,9 +1,10 @@
 
 
 export default async (req, res) => {
+    const { sort } = req?.query;
     if(req.method === 'GET') {
         // @To Do: Move to config.
-        const API_URL = 'https://api.github.com/users/djuppi/repos';
+        const API_URL = `https://api.github.com/users/djuppi/repos?sort=${sort}`;
 
         const githubRes = await fetch(`${API_URL}`, {
             method: 'GET',

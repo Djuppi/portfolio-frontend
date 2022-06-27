@@ -10,28 +10,32 @@ import Footer from './Footer';
 
 const variants = {
     open: { x: -300, y: 100 },
-    closed: { x: 0, y: 0}
+    closed: { x: 0, y: 0 }
 }
 
-const menuStyle = {
-    display: "flex",
-    "justify-self": "flex-end",
-    "grid-column": "3",
-    "align-self": "flex-start",
-    cursor: "pointer",
-    margin: "1rem"
-}
+
 
 
 export const Layout = ({title, description, keywords, children}) => {
     const [isOpen, toggleOpen] = useState(false);
+
+    const menuStyle = {
+        display: "flex",
+        "justify-self": "flex-end",
+        "grid-column": "3",
+        "align-self": "flex-start",
+        cursor: "pointer",
+        margin: "1rem",
+        position: isOpen ? 'sticky' : 'fixed',
+        top: isOpen ? '-70px' : ''
+    }
     
     return (
         <>
         <div className={styles.menu}>
             
-            <ul>
-            <li onClick={() => toggleOpen(false)} className={title === "Home" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
+            <ul> 
+                <li onClick={() => toggleOpen(false)} className={title === "Djuppi" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
                 <li onClick={() => toggleOpen(false)} className={title === "Projects" ? styles.chosenPage : null}><Link href="/projects">Projects</Link></li>
             </ul>
             <motion.div 

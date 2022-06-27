@@ -35,18 +35,11 @@
 
 }
 
-.menuButton {
-    display: flex;
-    justify-self: flex-end;
-    grid-row: 1;
-    grid-column: 3;
-    align-self: flex-start;
-    margin: 2rem;
-    cursor: pointer;
-}
+
 
 .menu {
     background-color: var(--link-color);
+
 }
 
 .menu ul {
@@ -56,6 +49,7 @@
     margin: 10rem 10rem 0 0;
     line-height: 2;
     font-size: 1.5rem;
+    position: fixed;
 }
 
 .menu ul li a {

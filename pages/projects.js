@@ -9,14 +9,15 @@ export default function ProjectPage({ projects }) {
 
     return (
         <Layout title="Projects">
-            <h1>My projects</h1>
             <div className={styles.container}>
+            <h1 className={styles.header}>My projects</h1>
+            <p className={styles.projectDesc}>Here you see all my finished projects. </p>
+            
+            <div className={styles.projects}>  
                 {projects.map((project, key) => {
                     return <ProjectCard id={key+1} chosen={chosen} setChosen={setChosen} project={project} />
                 })}
             </div>
-            <div className={styles.left}>
-                <Link href='/' className={styles.left} scroll={false}>Home</Link>
             </div>
         </Layout>
     )

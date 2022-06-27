@@ -5,16 +5,18 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Layout } from '@/components/Layout';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import useIntro from 'helpers/useIntro';
 
 const variants = {
   initial: { y: "10px", opcaity: 0 },
-  animate: { x: 0, y: 0, opacity: 1 }
+  animate: { y: 0, opacity: 1 }
 }
 
 
 export default function Home({projects}) {
+  const showAnimation = useIntro();
   return (
-    <Layout title="Home">
+    <Layout title="Djuppi">
       <div className={styles.container}>
       {/* @toDo - Rewrite this to CMS */}
         <div 
@@ -22,24 +24,24 @@ export default function Home({projects}) {
           
         >
           <motion.h1
-            initial="initial"
-            animate="animate"
+            initial={showAnimation ? "initial" : { opacity: 1 }}
+            animate={showAnimation ? "animate" : { opacity: 1 }}
             transition={{delay: 1, y: { type: "spring"}}}
             variants={variants}
           >
             Welcome, my name is Aske
           </motion.h1>
           <motion.h2
-            initial="initial"
-            animate="animate"
+            initial={showAnimation ? "initial" : { opacity: 1 }}
+            animate={showAnimation && "animate"}
             transition={{delay: 2, y: { type: "spring"}}}
             variants={variants}
           >
               I'm a frontend developer
           </motion.h2>
           <motion.p
-            initial="initial"
-            animate="animate"
+            initial={showAnimation ? "initial" : { opacity: 1 }}
+            animate={showAnimation && "animate"}
             transition={{delay: 3, y: { type: "spring"}}}
             variants={variants}
           >
@@ -48,8 +50,8 @@ export default function Home({projects}) {
         </div>
         <motion.div
           className={styles.infoContainer}
-          initial="initial"
-          animate="animate"
+          initial={showAnimation ? "initial" : { opacity: 1 }}
+          animate={showAnimation && "animate"}
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}
         >
@@ -59,8 +61,8 @@ export default function Home({projects}) {
 
         <motion.div
           className={styles.aboutContainer}
-          initial="initial"
-          animate="animate"
+          initial={showAnimation ? "initial" : { opacity: 1 }}
+          animate={showAnimation && "animate"}
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
@@ -71,15 +73,15 @@ export default function Home({projects}) {
 
         <motion.div 
           className={styles.projectContainer}
-          initial="initial"
-          animate="animate"
+          initial={showAnimation ? "initial" : { opacity: 1 }}
+          animate={showAnimation && "animate"}
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
           <h4>My recent projects</h4>
           <div className={styles.projects}>
             {projects.map((project, key) => {
-              return <ProjectCard id={key+1} project={project} />
+              return <ProjectCard id={key+1} key={key} project={project} />
             })}
           </div>
         </motion.div>
@@ -92,7 +94,7 @@ export default function Home({projects}) {
 }
 
 export const getServerSideProps = async () => {
-    const repos = await fetch('http://localhost:3000/api/github', {
+    const repos = await fetch('http://localhost:3000/api/github?sort=created', {
         method: 'GET',
     })
     const data = await repos.json();

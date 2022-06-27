@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export const Menu =({
-isOpen = false,
+  isOpen = false,
   width = 25,
   height = 25,
   strokeWidth = 1,
   color = '#dac0a6',
   transition = null,
   lineProps = null,
+  posistion = 'fixed'
 }, props) => {
 
     const variant = isOpen ? "opened" : "closed";
@@ -58,7 +59,7 @@ isOpen = false,
         "justify-self": "flex-end",
         "grid-column": "3",
         "align-self": "flex-start",
-        cursor: "pointer"
+        cursor: "pointer",
       }
 
     const unitHeight = 4;
