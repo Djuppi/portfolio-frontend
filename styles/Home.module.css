@@ -7,6 +7,12 @@
   grid-column: 2;
 }
 
+@media only screen and (max-width: 636px) {
+  .container {
+    margin: 1rem;
+  }
+}
+
 .infoContainer, .aboutContainer, .projectContainer {
   opacity: 0;
 }
@@ -28,6 +34,22 @@
   font-size: 3rem;
   opacity: 0;
 }
+
+@media only screen and (max-width: 850px) {
+  .headerContainer h1 {
+    font-size: 2.5rem;
+  }
+
+  .headerContainer h2 {
+    font-size: 3.5rem;
+  }
+
+  .headerContainer p {
+    font-size: 2rem;
+  }
+}
+
+
 
 .infoContainer {
   margin: 5rem 0;
@@ -52,7 +74,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 5rem 0;
+  margin: 5rem 0 2rem 0;
 }
 
 .projectContainer h4 {
@@ -66,6 +88,13 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.projectLink {
+  text-align: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: .5rem 0;
 }
 
 .box {

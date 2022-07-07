@@ -15,6 +15,20 @@
     grid-template-rows: .1fr 1fr;
 }
 
+@media only screen and (max-width: 1410px) {
+    .main {
+        grid-template-columns: .3fr 1fr .3fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .main {
+        grid-template-columns: .1fr 1fr .1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
 .name {
     display: flex;
     justify-self: flex-start;
@@ -34,8 +48,6 @@
     margin: 0 1rem 0 0;
 
 }
-
-
 
 .menu {
     background-color: var(--link-color);

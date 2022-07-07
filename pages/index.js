@@ -6,6 +6,9 @@ import { Layout } from '@/components/Layout';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import useIntro from 'helpers/useIntro';
+import { useEffect } from 'react';
+import { getCollections } from 'lib/unsplash';
+import { FiArrowRight } from 'react-icons/fi';
 
 const variants = {
   initial: { y: "10px", opcaity: 0 },
@@ -13,8 +16,9 @@ const variants = {
 }
 
 
-export default function Home({projects}) {
+export default function Home({projects, photos}) {
   const showAnimation = useIntro();
+
   return (
     <Layout title="Djuppi">
       <div className={styles.container}>
@@ -81,10 +85,14 @@ export default function Home({projects}) {
           <h4>My recent projects</h4>
           <div className={styles.projects}>
             {projects.map((project, key) => {
-              return <ProjectCard id={key+1} key={key} project={project} />
+              return <ProjectCard id={key+1} key={key} project={project} photo={photos[key]} />
             })}
           </div>
+          <div className={styles.projectLink}>
+            <Link href="/projects"><a>See all projects <FiArrowRight /></a></Link>
+          </div>
         </motion.div>
+        
         </div>
       
     </Layout>
@@ -97,9 +105,16 @@ export const getServerSideProps = async () => {
     const repos = await fetch('http://localhost:3000/api/github?sort=created', {
         method: 'GET',
     })
-    const data = await repos.json();
+
+
+    const repoData = await repos.json();
+
+    const photos = await getCollections();
 
     return {
-        props: {projects: data.filteredRepos.slice(0,4)}
+        props: {
+          projects: repoData.filteredRepos.slice(0,4),
+          photos,
+        }
     }
 }

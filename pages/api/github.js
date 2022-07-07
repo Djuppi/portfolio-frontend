@@ -9,7 +9,7 @@ export default async (req, res) => {
         const githubRes = await fetch(`${API_URL}`, {
             method: 'GET',
             headers: {
-                Authorization: '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'
+                Authorization: process.env.GITHUB_ACCESS_KEY
             }
         });
 
@@ -20,18 +20,21 @@ export default async (req, res) => {
         
         if(githubRes.ok) {
             repos.forEach(element => {
-
                 
+                
+
+                const newName = (element.name[0].toUpperCase() + element.name.slice(1)).replaceAll('-', ' ').replace('frontend', '');
                 const project = {};
                 
                 project.id = element.id;
-                project.name = element.name;
+                project.name = newName;
                 project.url = element.url;
                 project.description = element.description;
                 project.topics = element.topics;
                 project.homepage = element.homepage;
                 project.homepageImage = `https://raw.githubusercontent.com/djuppi/${element.name}/master/public/images/homepage-thumb.png`;
-                filteredRepos.push(project);
+                project.readMe = `https://raw.githubusercontent.com/djuppi/${element.name}/master/README.md`;
+                project.topics.includes('onportfolio') && filteredRepos.push(project);
             });
             
             res.status(200).json({filteredRepos});

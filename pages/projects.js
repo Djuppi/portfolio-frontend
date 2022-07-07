@@ -2,9 +2,9 @@ import { Layout } from "@/components/Layout";
 import { ProjectCard } from "@/components/ProjectCard";
 import styles from '@/styles/ProjectPage.module.css'
 import { useState } from 'react';
-import Link from 'next/link';
+import { getCollections } from 'lib/unsplash';
 
-export default function ProjectPage({ projects }) {
+export default function ProjectPage({ projects, photos }) {
     const [chosen, setChosen] = useState(0);
 
     return (
@@ -15,7 +15,7 @@ export default function ProjectPage({ projects }) {
             
             <div className={styles.projects}>  
                 {projects.map((project, key) => {
-                    return <ProjectCard id={key+1} chosen={chosen} setChosen={setChosen} project={project} />
+                    return <ProjectCard id={key+1} chosen={chosen} setChosen={setChosen} project={project} photo={photos[key]} />
                 })}
             </div>
             </div>
@@ -29,7 +29,12 @@ export const getServerSideProps = async () => {
     })
     const data = await repos.json();
 
+    const photos = await getCollections();
+
     return {
-        props: {projects: data.filteredRepos}
+        props: {
+            projects: data.filteredRepos,
+            photos
+        }
     }
 }

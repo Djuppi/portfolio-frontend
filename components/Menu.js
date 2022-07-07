@@ -56,9 +56,9 @@ export const Menu =({
 
       const buttonStyle = {
         display: "flex",
-        "justify-self": "flex-end",
-        "grid-column": "3",
-        "align-self": "flex-start",
+        "justifySelf": "flex-end",
+        "gridColumn": "3",
+        "alignSelf": "flex-start",
         cursor: "pointer",
       }
 

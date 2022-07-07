@@ -1,11 +1,12 @@
 :root {
   --background-primary: #0e141b;
   --header-primary: #dac0a6;
+  --header-secondary: rgb(0, 0, 0);
   --shadow-primary: rgba(156, 149, 129, 0.664);
   --header-color: #f5c3ae;
   --border-color: #a68f7d;
   --text-color-primary: rgb(255, 255, 255);
-  --text-color-secondary: rgba(255, 255, 255, 0.766);
+  --text-color-secondary: rgba(0, 0, 0, 0.766);
   --link-color: #dac0a6;
   --link-color-dark: var(--background-primary);
   --link-color-light: #ebe2d9;
@@ -17,14 +18,20 @@
   --semi-red-hover: #a57b76e9;
   --semi-light: #d9c6b1;
   --semi-light-hover: #d9c6b1e1;
-  --box-primary: #309238c9;
-  --box-secondary: rgb(189, 96, 80);
+  --card-color: rgba(216, 161, 98, 0.7);
+  --card-background: #bdad8b;
   --gradient-bottom-left: -webkit-linear-gradient(315deg, #272d2dff, var(--header-color), #bb4430ff);
   --gradient-top-right: linear-gradient(135deg, var(--semi-red), var(--semi-light));
   --gradient-top: linear-gradient(0deg, var(--text-color-primary), var(--header-color), var(--text-color-primary));
   --gradient-top-light: linear-gradient(135deg, var(--semi-red-hover), var(--semi-light-hover));;
 
   --spacer: 10px;
+
+  --screen-sm: 636px;
+  --screen-md: 850px;
+  --scrren-lg: 1120px;
+  --screen-xl: 1410px; 
+
 }
 
 html {
@@ -58,11 +65,22 @@ a:hover {
 }
 
 h1 {
-  background: var(--header-color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--header-color);
 }
 
 h1 {
   font-size: 2rem;
+}
+
+.glass {
+background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 10px; 
+}
+
+.glass:hover {
+  background: hsla(0, 0%, 100%, 0.555);
+  border: 1px solid #fff;
 }
