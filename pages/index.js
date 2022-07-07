@@ -60,7 +60,7 @@ export default function Home({projects, photos}) {
           variants={variants}
         >
           <p>On this page you'll get to know a little bit of me and what I do. Below you can read a little about me, see my recent projects and connect with me on social media.</p>
-          <p>At the top right, you can open the menu and see more.</p>
+          <p>At the top right, you can open the menu, where you will be able to navigate through this website and change the theme.</p>
         </motion.div>
 
         <motion.div
@@ -82,7 +82,7 @@ export default function Home({projects, photos}) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
-          <h4>My recent projects</h4>
+          <h4>My most recent projects</h4>
           <div className={styles.projects}>
             {projects.map((project, key) => {
               return <ProjectCard id={key+1} key={key} project={project} photo={photos[key]} />

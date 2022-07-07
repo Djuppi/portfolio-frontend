@@ -11,17 +11,17 @@
 .card {
     width: 22rem;
     height: 26rem;
-    cursor: pointer;
     border-radius: 10px;
     padding: 1rem;
     margin: 1rem;
+    text-align: center;
 }
 
 .card h1 {
     color: var(--header-primary);
     font-size: 1.4rem;
+    
 }
-
 
 .card p {
     color: var(--text-color-secondary);
@@ -29,14 +29,18 @@
     font-weight: 600;
 }
 
-.bigCard {
-    width: 50rem;
-    height: 30rem;
-    position: absolute;
-    border-radius: 10px;
-    transition: .4s all ease-in-out;
-    padding: 2rem;
+.link {
+    width: 8rem;
+    height: 3rem;
+    background-color: var(--header-primary);
+    color: var(--text-color-secondary);
+    text-align: center;
+    padding: 7px 10px;
+    margin: 4rem auto;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 10px 5px 8px var(--shadow-primary);
-    overflow: unset;
+}
+
+.link a {
+    color: var(--link-color-dark);
 }

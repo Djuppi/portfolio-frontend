@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from '@/styles/ProjectCard.module.css';
-import cls from "classnames";
+import Link from "next/link";
 
 const textVariants = {
   visible: { opacity: 1, y: "20px", transition: { duration: .2 } },
@@ -15,7 +15,8 @@ const variants = {
   overlayVisible: { opacity: .5, transition: { duration: .2 } },
   overlayHidden: { opacity: 0, transition: { duration: .2 } },
   textVisible: { opacity: 1, y: "20px", transition: { duration: .2 } },
-  textHidden: { opacity: 0, y: "40px", transition: { duration: .2 } }
+  textHidden: { opacity: 0, y: "40px", transition: { duration: .2 } },
+  buttonHover: { backgroundColor: "var(--hover-color)", textDecoration: "underline", transition: { duration: .2 } },
 }
 
 export const ProjectCard = ({id, chosen, setChosen, project, photo}) => {
@@ -31,7 +32,6 @@ export const ProjectCard = ({id, chosen, setChosen, project, photo}) => {
     return (
         <motion.div
           className={styles.card} 
-          onClick={() => setChosen(chosen === id ? 0 : id)}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           style={imageStyles}
@@ -52,7 +52,19 @@ export const ProjectCard = ({id, chosen, setChosen, project, photo}) => {
                 initial="textHidden"
               >
                 {project.description.slice(0,100)}
+                
               </motion.p>
+              <Link href={`/projects/${project.id}`}>
+                <motion.div 
+                  className={styles.link}
+                  animate={ isHovered ? "textVisible" : "textHidden"}
+                  variants={variants}
+                  initial="textHidden"
+                  whileHover="buttonHover"
+                >
+                  See more
+                </motion.div>
+              </Link>
         </motion.div>
     )
   }
