@@ -18,7 +18,7 @@
 }
 
 .card h1 {
-    color: var(--header-primary);
+    color: var(--card-header);
     font-size: 1.4rem;
     
 }

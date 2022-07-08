@@ -7,6 +7,7 @@ import styles from '@/styles/Layout.module.css';
 import { motion } from 'framer-motion';
 import { Menu } from './Menu';
 import Footer from './Footer';
+import ThemeChanger from 'helpers/ThemeChanger';
 
 const variants = {
     open: { x: -300, y: 100 },
@@ -18,6 +19,8 @@ const variants = {
 
 export const Layout = ({title, description, keywords, children}) => {
     const [isOpen, toggleOpen] = useState(false);
+
+    const [colorTheme, setTheme] = ThemeChanger();
 
     const menuStyle = {
         display: "flex",
@@ -38,6 +41,10 @@ export const Layout = ({title, description, keywords, children}) => {
                 <li onClick={() => toggleOpen(false)} className={title === "Djuppi" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
                 <li onClick={() => toggleOpen(false)} className={title === "Projects" ? styles.chosenPage : null}><Link href="/projects">Projects</Link></li>
             </ul>
+            <div>
+                <button onClick={() => setTheme('default')}>Default Theme</button>
+                <button onClick={() => setTheme('stark')}>Winterfell Theme</button>
+            </div>
             <motion.div 
                 animate={isOpen ? "open" : "closed"}
                 variants={variants}

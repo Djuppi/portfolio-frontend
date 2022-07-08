@@ -2,28 +2,17 @@
   --background-primary: #0e141b;
   --header-primary: #dac0a6;
   --header-secondary: rgb(0, 0, 0);
-  --shadow-primary: rgba(156, 149, 129, 0.664);
   --header-color: #f5c3ae;
-  --border-color: #a68f7d;
+  --card-header: var(--header-primary);
   --text-color-primary: rgb(255, 255, 255);
   --text-color-secondary: rgba(0, 0, 0, 0.766);
   --link-color: #dac0a6;
   --link-color-dark: var(--background-primary);
-  --link-color-light: #ebe2d9;
-  --hover-color-dark: #5f8eb9;
-  --hover-color-light: #dac0a6; 
-  --hover-color: #bb4430ff;
+  --hover-color-primary: #bb4430ff;
+  --hover-color-secondary: #5f8eb9;
   --linkedIn-color: #0a66c2;
-  --semi-red: #a57b76;
-  --semi-red-hover: #a57b76e9;
-  --semi-light: #d9c6b1;
-  --semi-light-hover: #d9c6b1e1;
-  --card-color: rgba(216, 161, 98, 0.7);
-  --card-background: #bdad8b;
-  --gradient-bottom-left: -webkit-linear-gradient(315deg, #272d2dff, var(--header-color), #bb4430ff);
-  --gradient-top-right: linear-gradient(135deg, var(--semi-red), var(--semi-light));
-  --gradient-top: linear-gradient(0deg, var(--text-color-primary), var(--header-color), var(--text-color-primary));
-  --gradient-top-light: linear-gradient(135deg, var(--semi-red-hover), var(--semi-light-hover));;
+  --overlay-color: #ffffff;
+  --border-color: #a68f7d;
 
   --spacer: 10px;
 
@@ -32,6 +21,23 @@
   --scrren-lg: 1120px;
   --screen-xl: 1410px; 
 
+}
+
+:root[data-theme="stark"] {
+      --background-primary: #E2E5EA;
+      --header-primary: #2B3B4B;
+      --header-secondary: #343331;
+      --header-color: #59a6c5;
+      --card-header: var(--header-color);
+      --text-color-primary: #000;
+      --text-color-secondary: #ffffff;
+      --link-color: #8D9A88;
+      --link-color-dark: #564D44;
+      --hover-color-primary: #32412c;
+      --hover-color-secondary: #cfbead;
+      --linkedIn-color: #0a66c2;
+      --overlay-color: #ffffff;
+      --border-color: #a68f7d;
 }
 
 html {
@@ -55,7 +61,7 @@ a {
 }
 
 a:hover {
-  color: var(--hover-color);
+  color: var(--hover-color-primary);
   text-decoration: underline;
 }
 

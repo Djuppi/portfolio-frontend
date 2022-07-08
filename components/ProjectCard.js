@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import styles from '@/styles/ProjectCard.module.css';
 import Link from "next/link";
 
-const textVariants = {
-  visible: { opacity: 1, y: "20px", transition: { duration: .2 } },
-  hidden: { opacity: 0, y: "40px", transition: { duration: .2 } }
-};
-
 const variants = {
+  // Animations for the card box
   cardAnimate: { transform: 'scale(1.1)', transition: { duration: .4 } },
   cardInitial: { transform: 'scale(1)', transition: { type: "spring", stiffness: 100, duration: .4 } },
+  // Animations for the overlay on the cards
   overlayVisible: { opacity: .5, transition: { duration: .2 } },
   overlayHidden: { opacity: 0, transition: { duration: .2 } },
+  // Animations for the description on the card
   textVisible: { opacity: 1, y: "20px", transition: { duration: .2 } },
   textHidden: { opacity: 0, y: "40px", transition: { duration: .2 } },
-  buttonHover: { backgroundColor: "var(--hover-color)", textDecoration: "underline", transition: { duration: .2 } },
+  // Animations for the button
+  buttonHover: { backgroundColor: "var(--hover-color-primary)", textDecoration: "underline", transition: { duration: .2 } },
 }
 
-export const ProjectCard = ({id, chosen, setChosen, project, photo}) => {
+export const ProjectCard = ({project, photo}) => {
   const [isHovered, setHovered] = useState(false);
 
   const imgUrl = photo?.urls?.thumb || '/assets/img/noimage.jpg';
@@ -57,7 +55,7 @@ export const ProjectCard = ({id, chosen, setChosen, project, photo}) => {
               <Link href={`/projects/${project.id}`}>
                 <motion.div 
                   className={styles.link}
-                  animate={ isHovered ? "textVisible" : "textHidden"}
+                  animate={isHovered ? "textVisible" : "textHidden"}
                   variants={variants}
                   initial="textHidden"
                   whileHover="buttonHover"

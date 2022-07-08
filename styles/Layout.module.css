@@ -6,7 +6,6 @@
     background-color: var(--background-primary);
     padding: 10px;
     box-shadow: 5px 10px 8px var(--shadow-primary);
-    border: 1.5px double var(--border-color);
 }
 
 .main {
@@ -71,7 +70,7 @@
 }
 
 .menu ul li a:hover {
-    color: var(--hover-color-dark);
+    color: var(--hover-color-secondary);
 }
 
 .chosenPage {
