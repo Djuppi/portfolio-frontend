@@ -73,6 +73,37 @@
     color: var(--hover-color-secondary);
 }
 
+.scrollTop {
+    cursor: pointer;
+    margin-top: 5rem;
+    color: var(--link-color-dark);
+    transition: all .2s ease;
+}
+
+.scrollTop:hover {
+    color: var(--hover-color-secondary);
+    text-decoration: underline;
+}
+
+.themeChanger {
+    position: absolute;
+    margin: 2rem calc(100% / 3);
+}
+
+.themeChanger button {
+    height: 5rem;
+    border-radius: 5px;
+    border: 1.5px solid black;
+    margin: 0 2rem;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--text-color-primary);
+}
+
+.themeChanger button:hover {
+    transform: scale(1.1);
+}
+
 .chosenPage {
     text-decoration: underline;
 }

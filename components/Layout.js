@@ -40,10 +40,11 @@ export const Layout = ({title, description, keywords, children}) => {
             <ul> 
                 <li onClick={() => toggleOpen(false)} className={title === "Djuppi" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
                 <li onClick={() => toggleOpen(false)} className={title === "Projects" ? styles.chosenPage : null}><Link href="/projects">Projects</Link></li>
+                <li onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={styles.scrollTop}>Change theme?</li>
             </ul>
-            <div>
-                <button onClick={() => setTheme('default')}>Default Theme</button>
-                <button onClick={() => setTheme('stark')}>Winterfell Theme</button>
+            <div className={styles.themeChanger}>
+                <button onClick={() => setTheme('default')}>Whiskey blue</button>
+                <button onClick={() => setTheme('stark')}>Winterfell</button>
             </div>
             <motion.div 
                 animate={isOpen ? "open" : "closed"}

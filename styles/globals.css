@@ -13,6 +13,7 @@
   --linkedIn-color: #0a66c2;
   --overlay-color: #ffffff;
   --border-color: #a68f7d;
+  --button-bg: #243446;
 
   --spacer: 10px;
 
@@ -38,6 +39,7 @@
       --linkedIn-color: #0a66c2;
       --overlay-color: #ffffff;
       --border-color: #a68f7d;
+      --button-bg: #cdcfd1;
 }
 
 html {
