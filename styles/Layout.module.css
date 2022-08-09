@@ -6,6 +6,7 @@
     background-color: var(--background-primary);
     padding: 10px;
     box-shadow: 5px 10px 8px var(--shadow-primary);
+    transition: background-color .3s ease-in-out;
 }
 
 .main {
@@ -49,8 +50,7 @@
 }
 
 .menu {
-    background-color: var(--link-color);
-
+    background-color: var(--menu-bg-color);
 }
 
 .menu ul {

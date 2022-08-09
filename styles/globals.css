@@ -3,6 +3,7 @@
   --header-primary: #dac0a6;
   --header-secondary: rgb(0, 0, 0);
   --header-color: #f5c3ae;
+  --menu-bg-color: #dac0a6;
   --card-header: var(--header-primary);
   --text-color-primary: rgb(255, 255, 255);
   --text-color-secondary: rgba(0, 0, 0, 0.766);
@@ -29,11 +30,12 @@
       --header-primary: #2B3B4B;
       --header-secondary: #343331;
       --header-color: #59a6c5;
+      --menu-bg-color: #586154;
       --card-header: var(--header-color);
       --text-color-primary: #000;
       --text-color-secondary: #ffffff;
       --link-color: #8D9A88;
-      --link-color-dark: #564D44;
+      --link-color-dark: #a3a9b8;
       --hover-color-primary: #32412c;
       --hover-color-secondary: #cfbead;
       --linkedIn-color: #0a66c2;
@@ -44,17 +46,18 @@
 
 html {
   font-size: 10px;
+  transition: background-color .5s ease-in-out;
 }
 
 html,
 body {
-  background-color: var(--link-color);
+  background-color: var(--menu-bg-color);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--text-color-primary);
-
+  
 }
 
 a {
