@@ -44,6 +44,25 @@
       --button-bg: #cdcfd1;
 }
 
+:root[data-theme="lannister"] {
+  --background-primary: 	#64000d;
+  --header-primary: #eab64d;
+  --header-secondary: #343331;
+  --header-color: #C2AD77;
+  --menu-bg-color: #C2AD77;
+  --card-header: #a32927;
+  --text-color-primary: rgb(218, 214, 214);
+  --text-color-secondary: #ffffff;
+  --link-color: #eab64d;
+  --link-color-secondary: #370003;
+  --hover-color-primary: #370003;
+  --hover-color-secondary: #eab64d;
+  --linkedIn-color: #0a66c2;
+  --overlay-color: #ffffff;
+  --border-color: #a68f7d;
+  --button-bg: #64000d;
+}
+
 html {
   font-size: 10px;
 }

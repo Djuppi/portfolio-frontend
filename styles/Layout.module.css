@@ -87,7 +87,7 @@
 
 .themeChanger {
     position: absolute;
-    margin: 2rem calc(100% / 3);
+    margin: 2rem calc(100% / 4);
 }
 
 .themeChanger button {
@@ -98,6 +98,7 @@
     cursor: pointer;
     background-color: var(--button-bg);
     color: var(--text-color-primary);
+    transition: transform .2s ease-in-out;
 }
 
 .themeChanger button:hover {

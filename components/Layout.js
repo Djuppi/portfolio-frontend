@@ -3,14 +3,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Menu from './Menu';
-import Footer from './Footer';
+//import Footer from './Footer';
 import styles from '@/styles/Layout.module.css';
 import { motion } from 'framer-motion';
 import ThemeChanger from 'helpers/ThemeChanger';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react'
 
-// const DynamicFooter = dynamic(() => import('./Footer'), { suspense: true });
+ const DynamicFooter = dynamic(() => import('./Footer'), { suspense: true });
 // const DynamicMenu = dynamic(() => import('./Menu'), { suspense: true });
 const variants = {
     open: { x: -300, y: 100 },
@@ -43,8 +43,15 @@ export default function Layout({title, description, keywords, children}) {
                 <li onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={styles.scrollTop}>Change theme?</li>
             </ul>
             <div className={styles.themeChanger}>
-                <button onClick={() => setTheme('default')}>Whiskey blue</button>
-                <button onClick={() => setTheme('stark')}>Winterfell</button>
+                <button onClick={() => setTheme('default')}>
+                    Whiskey blue
+                </button>
+                <button onClick={() => setTheme('stark')}>
+                    Winterfell Grey
+                </button>
+                <button onClick={() => setTheme('lannister')}>
+                    Lannister red
+                </button>
             </div>
             <motion.div 
                 animate={isOpen ? "open" : "closed"}
@@ -78,10 +85,10 @@ export default function Layout({title, description, keywords, children}) {
                     {children}
                 </main>
                 <footer className={styles.footer}>
-                    <Footer />
-                    {/* <Suspense fallback={'Loading...'}>
+                    {/* <Footer /> */}
+                    <Suspense fallback={'Loading...'}>
                         <DynamicFooter />
-                    </Suspense> */}
+                    </Suspense>
                     
                 </footer>
                 </div>
