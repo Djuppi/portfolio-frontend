@@ -26,16 +26,16 @@
 }
 
 :root[data-theme="stark"] {
-      --background-primary: #E2E5EA;
+      --background-primary: #e9ecf0;
       --header-primary: #2B3B4B;
       --header-secondary: #343331;
-      --header-color: #59a6c5;
+      --header-color: #00425a;
       --menu-bg-color: #586154;
-      --card-header: var(--header-color);
+      --card-header: #59a6c5;
       --text-color-primary: #000;
       --text-color-secondary: #ffffff;
-      --link-color: #8D9A88;
-      --link-color-dark: #a3a9b8;
+      --link-color: #19330f;
+      --link-color-secondary: #a3a9b8;
       --hover-color-primary: #32412c;
       --hover-color-secondary: #cfbead;
       --linkedIn-color: #0a66c2;
@@ -46,7 +46,6 @@
 
 html {
   font-size: 10px;
-  transition: background-color .5s ease-in-out;
 }
 
 html,

@@ -1,4 +1,4 @@
-import { Layout } from "@/components/Layout";
+import Layout from "@/components/Layout";
 import { ProjectCard } from "@/components/ProjectCard";
 import styles from '@/styles/ProjectPage.module.css'
 import { useState } from 'react';
@@ -15,7 +15,7 @@ export default function ProjectPage({ projects, photos }) {
             
             <div className={styles.projects}>  
                 {projects.map((project, key) => {
-                    return <ProjectCard id={key+1} chosen={chosen} setChosen={setChosen} project={project} photo={photos[key]} />
+                    return <ProjectCard id={key+1} key={key} chosen={chosen} setChosen={setChosen} project={project} photo={photos[key]} />
                 })}
             </div>
             </div>

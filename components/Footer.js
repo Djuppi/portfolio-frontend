@@ -12,6 +12,7 @@ export default function Footer() {
             <div className={styles.social}>
                 <a
                     className={styles.linkedIn}
+                    aria-label="LinkedIn"
                     href='https://www.linkedin.com/in/aske-djupnes-ammentorp-03434984/' 
                     target="_blank" 
                     rel='noreferrer'
@@ -20,6 +21,7 @@ export default function Footer() {
                 </a>
                 <a 
                     className={styles.insta}
+                    aria-label="Instagram"
                     href="https://www.instagram.com/laske60/"    
                     target="_blank" 
                     rel='noreferrer'
@@ -28,11 +30,14 @@ export default function Footer() {
                 </a>
                 <a 
                     className={styles.github}
+                    aria-label="Github"
                     href="https://github.com/Djuppi/"    
                     target="_blank" 
                     rel='noreferrer'
                 >
-                    <span><FaGithub className={styles.icon} /></span>
+                    <span>
+                        <FaGithub className={styles.icon} />
+                    </span>
                 </a>
             </div>
             <div className={styles.copyright}>

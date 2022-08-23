@@ -20,11 +20,11 @@ const variants = {
 export const ProjectCard = ({project, photo}) => {
   const [isHovered, setHovered] = useState(false);
 
-  const imgUrl = photo?.urls?.thumb || '/assets/img/noimage.jpg';
+  const imgUrl = photo || '/assets/img/noimage.jpg';
 
   const imageStyles = {
     background: `transparent url(${imgUrl}) no-repeat`,
-    backgroundSize: 'cover'
+    "backgroundSize": 'cover'
   }
 
     return (

@@ -38,15 +38,15 @@
     margin: 2rem 0;
 }
 
-.name img {
+.name span {
     background-color: var(--header-primary);
-    width: 2.5rem;
-    height: 2.5rem;
     border-radius: 50%;
     border: none;
     align-self: center;
-    margin: 0 1rem 0 0;
-
+    margin-right: 2rem;
+}
+.name p {
+    margin-left: 1rem;
 }
 
 .menu {
@@ -64,7 +64,7 @@
 }
 
 .menu ul li a {
-    color: var(--link-color-dark);
+    color: var(--link-color-secondary);
     transition: all .2s ease;
     font-size: 2rem;
 }

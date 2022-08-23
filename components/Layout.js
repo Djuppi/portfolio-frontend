@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Header from './Header';
+import Image from 'next/image';
+import Menu from './Menu';
+import Footer from './Footer';
 import styles from '@/styles/Layout.module.css';
 import { motion } from 'framer-motion';
-import { Menu } from './Menu';
-import Footer from './Footer';
 import ThemeChanger from 'helpers/ThemeChanger';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react'
 
+// const DynamicFooter = dynamic(() => import('./Footer'), { suspense: true });
+// const DynamicMenu = dynamic(() => import('./Menu'), { suspense: true });
 const variants = {
     open: { x: -300, y: 100 },
     closed: { x: 0, y: 0 }
 }
 
-
-
-
-export const Layout = ({title, description, keywords, children}) => {
+export default function Layout({title, description, keywords, children}) {
     const [isOpen, toggleOpen] = useState(false);
 
     const [colorTheme, setTheme] = ThemeChanger();
@@ -55,11 +55,12 @@ export const Layout = ({title, description, keywords, children}) => {
                 <title>{title}</title>
                     <meta name='description' content={description} />
                     <meta name='keywords' content={keywords} />
+                    <meta name='lang' content='en' />
                 </Head>
                 <div className={styles.container}>
                 <main className={styles.main}>
                     <div className={styles.name}>
-                        <img src='/assets/img/aske_thump.jpg' alt='' />
+                        <Image src='/assets/img/aske_thump.jpg' alt='' width={30} height={30}/>
                         <p>Aske Djupnes</p>
                     </div>
                     <motion.div 
@@ -72,15 +73,26 @@ export const Layout = ({title, description, keywords, children}) => {
                         }}
                     >
                         <Menu isOpen={isOpen} />
+                        {/* <DynamicMenu isOpen={isOpen} /> */}
                     </motion.div>
                     {children}
                 </main>
                 <footer className={styles.footer}>
                     <Footer />
+                    {/* <Suspense fallback={'Loading...'}>
+                        <DynamicFooter />
+                    </Suspense> */}
+                    
                 </footer>
                 </div>
             </motion.div>
         </div>
         </>
     )
+}
+
+Layout.defaultProps = {
+    title: 'Djuppi | Web Developer',
+    description: 'Frontend and API webdeveloper based in Oslo. ',
+    keywords: 'Developer, Frontend, API, Norway, Oslo, Webdeveloper'
 }

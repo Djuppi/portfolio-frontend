@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export const Menu =({
+export default function Menu ({
   isOpen = false,
   width = 25,
   height = 25,
@@ -10,7 +10,7 @@ export const Menu =({
   transition = null,
   lineProps = null,
   posistion = 'fixed'
-}, props) => {
+}, props) {
 
     const variant = isOpen ? "opened" : "closed";
 

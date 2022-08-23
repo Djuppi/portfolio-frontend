@@ -1,6 +1,6 @@
 import { createApi } from 'unsplash-js';
 
-export default async (req, res) => {
+async function connect(req, res) {
     if(req.method === 'GET') {
 
         const unsplashRes = createApi({
@@ -13,3 +13,6 @@ export default async (req, res) => {
 
     }
 }
+
+export default connect;
+
