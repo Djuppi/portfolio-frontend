@@ -15,6 +15,9 @@
   --overlay-color: #ffffff;
   --border-color: #a68f7d;
   --button-bg: #243446;
+  --timeline-dot: #dac0a6;
+  --timeline-card: #dac0a6;
+  --timeline-card-text: #000;
 
   --spacer: 10px;
 
@@ -42,6 +45,9 @@
       --overlay-color: #ffffff;
       --border-color: #a68f7d;
       --button-bg: #cdcfd1;
+      --timeline-dot: #2B3B4B;
+      --timeline-card: #2B3B4B;
+      --timeline-card-text: #fff;
 }
 
 :root[data-theme="lannister"] {
@@ -61,6 +67,9 @@
   --overlay-color: #ffffff;
   --border-color: #a68f7d;
   --button-bg: #64000d;
+  --timeline-dot: #a32927;
+  --timeline-card: #a32927b2;
+  --timeline-card-text: #fff;
 }
 
 html {
