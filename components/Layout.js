@@ -12,15 +12,22 @@ import { Suspense } from 'react'
 
  const DynamicFooter = dynamic(() => import('./Footer'), { suspense: true });
 // const DynamicMenu = dynamic(() => import('./Menu'), { suspense: true });
-const variants = {
-    open: { x: -300, y: 100 },
-    closed: { x: 0, y: 0 }
-}
 
 export default function Layout({title, description, keywords, children}) {
+    let isMobile;
     const [isOpen, toggleOpen] = useState(false);
 
     const [colorTheme, setTheme] = ThemeChanger();
+
+    if(typeof window !== 'undefined') {
+        isMobile = window.innerWidth < 768;
+    }
+
+    const variants = {
+        open: { x: isMobile ? -100 : -300, y: isMobile ? 50 : 100 },
+        closed: { x: 0, y: 0 }
+    }
+
 
     const menuStyle = {
         display: "flex",
@@ -37,9 +44,10 @@ export default function Layout({title, description, keywords, children}) {
         <>
         <div className={styles.menu}>
             
-            <ul> 
+            <ul className={styles.nav}> 
                 <li onClick={() => toggleOpen(false)} className={title === "Djuppi" ? styles.chosenPage : null}><Link href="/">Home</Link></li>
                 <li onClick={() => toggleOpen(false)} className={title === "Projects" ? styles.chosenPage : null}><Link href="/projects">Projects</Link></li>
+                <li onClick={() => toggleOpen(false)} className={title === "About" ? styles.chosenPage : null}><Link href="/about">About</Link></li>
                 <li onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={styles.scrollTop}>Change theme?</li>
             </ul>
             <div className={styles.themeChanger}>

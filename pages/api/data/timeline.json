@@ -2,22 +2,25 @@
     {
         "title": "Bachelor degree in Sport and Health",
         "description": "Got my Bachelor degree in Sport and Health from University of southern Denmark",
-        "date": "13/01/2016"
+        "startDate": "01/09/2012",
+        "endDate": "13/01/2016"
     },
     {
         "title": "Moved to Norway",
         "description": "I moved to Oslo to start in my new position at Oslo Turnforening.",
-        "date": "29/01/2016"
+        "startDate": "29/01/2016"
     },
     {
         "title": "Started at Oslo Turnforening",
         "description": "Here I began as a fulltime coach for the TeamGym department, with responsibility for kids, youth and young adults in the competitive department.",
-        "date": "01/02/2016"
+        "startDate": "01/02/2016",
+        "endDate": "25/09/2016"
     },
     {
         "title": "Bachelor degree in Sport and Health",
         "description": "Got my Bachelor degree in Sport and Health from University of southern Denmark",
-        "date": "13/01/2016"
+        "startDate": "01/09/2012",
+        "endDate": "13/01/2016"
     },
     {
         "title": "Moved to Norway",

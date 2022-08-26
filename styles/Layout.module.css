@@ -53,23 +53,22 @@
     background-color: var(--menu-bg-color);
 }
 
-.menu ul {
+.nav {
     list-style: none;
     right: 5rem;
     float: right;
     margin: 10rem 10rem 0 0;
     line-height: 2;
-    font-size: 1.5rem;
     position: fixed;
 }
 
-.menu ul li a {
+.nav li a {
     color: var(--link-color-secondary);
     transition: all .2s ease;
     font-size: 2rem;
 }
 
-.menu ul li a:hover {
+.nav li a:hover {
     color: var(--hover-color-secondary);
 }
 
@@ -89,6 +88,8 @@
     position: absolute;
     margin: 2rem calc(100% / 4);
 }
+
+
 
 .themeChanger button {
     height: 5rem;
@@ -112,4 +113,27 @@
 .footer {
     border-top: 1px solid var(--border-color);
     
+}
+
+@media (max-width: 768px) {
+    .themeChanger {
+      margin: 1rem calc(50% / 4);
+      
+    }
+
+    .themeChanger button {
+        width: 8rem;
+        height: 3.5rem;
+        margin: 0 .5rem;
+    }
+
+    .nav {
+        right: 1rem;
+        margin: 10rem 1rem 0 0;
+        line-height: 3;
+    }
+
+    .nav li a {
+        font-size: 1.6rem;
+    }
 }

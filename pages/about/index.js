@@ -12,7 +12,7 @@ export default function About() {
         <Layout title="About">
             <div className={styles.container}>
                 <h1>About me</h1>
-                <p>Underneath you can choose to read about me or scroll through the interactive timeline to see my lifes biggest events.</p>
+                <p>Underneath you can choose to read about me or scroll through the interactive timeline to see the biggest events of my life.</p>
 
                 <div className={styles.timelineContainer}>
                     <ul>
@@ -20,10 +20,11 @@ export default function About() {
                         return (
                             <li key={key}>
                                 <span></span>
-                                <div class="title">{e.title}</div>
-                                <div class="description">{e.description}</div>
-                                <div class="date">
-                                    {e.date}                            
+                                <div className={styles.title}>{e.title}</div>
+                                <div className={styles.description}>{e.description}</div>
+                                <div className={styles.date}>
+                                    <span>{e.startDate}</span>
+                                    {e.endDate && <span>{e.endDate}</span>}                            
                                 </div> 
                             </li> 
                         )

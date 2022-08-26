@@ -29,7 +29,7 @@
 }
 
 .timelineContainer ul:last-of-type {
-    top:80px;
+    top: 8rem;
 }
 
 .timelineContainer ul:before{
@@ -37,20 +37,21 @@
     display: block;
     width: 0;
     height: 200%;
-    border:1px dashed var(--header-color);
+    border: 1px dashed var(--header-color);
     position: absolute;
-    top:0;
-    left:30px
+    top: 0;
+    left: 3rem;
 }
 
 .timelineContainer ul li{
-    margin: 20px 60px 60px;
+    margin: 2rem 6rem 6rem;
     position: relative;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     background: var(--timeline-card);
     color: var(--timeline-card-text);
     border-radius: 10px;
-    line-height: 20px;
+    line-height: 2;
+    font-size: 1.2rem;
 }
 
 .timelineContainer ul li > span{
@@ -64,47 +65,86 @@
     left:-30px
 }
 
-.timelineContainer ul li > span:before,.box ul li > span:after{
+.timelineContainer ul li > span:before {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
     background:var(--timeline-dot);
     border:2px solid #fff;
     position: absolute;
-    left:-6.5px
+    left:-7.5px
 }
 
-.box ul li > span:before{top:-10px}
-.box ul li > span:after{top:95%}
+.timelineContainer ul li .date > span:nth-child(2):after {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background:var(--timeline-dot);
+    border:2px solid #fff;
+    position: absolute;
+    left: 63.5px;
+    top: 0px
+}
 
-.box .title{
+.timelineContainer ul li > span:before{top:-10px}
+.timelineContainer ul li > span:after{top:95%}
+
+
+.timelineContainer .title{
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.box .description:first-letter{text-transform: capitalize;line-height: 1.7}
+.timelineContainer .description:first-letter{text-transform: capitalize;line-height: 1.7}
 
-.box .name{
+.timelineContainer .title{
     margin-top: 10px;
     text-transform: capitalize;
     font-style: italic;
-    text-align: right;
+    text-align: left;
     margin-right: 20px
 }
 
 
-.timelineContainer .date span{
+.timelineContainer .date span {
     position: absolute;
-    left: -100px;
-    color:#fff;
-    font-size:80%;
+    left: -10rem;
+    color:var(--text-color-primary);
+    font-size:1rem;
     font-weight: bold;
+    overflow: visible;
 }
 .timelineContainer .date span:first-child{top:-16px}
-.timelineContainer .date span:last-child{top:94%}
+.timelineContainer .date span:nth-child(2){
+    top:94%;
+    word-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        grid-column: 1 2;
+    }
+    .timelineContainer {
+        padding: 0;
+        margin: 0;
+    }
+
+    .timelineContainer .date span {
+        left: -1rem;
+    }
+
+    .timelineContainer ul li .date > span:nth-child(2):after {
+        left:-26.5px;
+        top: 0px
+    }
+
+}
 
 
 .arrow{
