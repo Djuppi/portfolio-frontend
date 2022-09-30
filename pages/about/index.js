@@ -1,9 +1,10 @@
 import Layout from "@/components/Layout";
 import styles from '@/styles/About.module.css';
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Events from '../api/data/timeline.json';
+import ReactMarkdown from "react-markdown";
 
-export default function About() {
+export default function About({title, richtext}) {
     const [noOfEvents, setNoOfEvents] = useState(3);
     const firstList = Events.slice(0,noOfEvents);
     const secondList = Events.slice(noOfEvents, noOfEvents+noOfEvents);
@@ -11,10 +12,14 @@ export default function About() {
     return (
         <Layout title="About">
             <div className={styles.container}>
-                <h1>About me</h1>
+                <h1>{title}</h1>
                 <p>Underneath you can choose to read about me or scroll through the interactive timeline to see the biggest events of my life.</p>
 
-                <div className={styles.timelineContainer}>
+                <div>
+                    <ReactMarkdown children={richtext} />
+                </div>
+                
+                {/*<div className={styles.timelineContainer}>
                     <ul>
                        {Events.map((e, key) => {
                         return (
@@ -31,8 +36,23 @@ export default function About() {
                        })}
                     </ul>
             
-                </div>
+                </div>*/}
             </div>
         </Layout>
     )
+}
+
+export const getStaticProps = async () => {
+    const pageContent = await fetch("http://localhost:1337/api/aboutPage");
+
+    const aboutPage = await pageContent.json();
+
+    const { title, richtext } = aboutPage?.data?.attributes;
+
+    return {
+        props: {
+            title,
+            richtext
+        }
+    }
 }

@@ -15,11 +15,20 @@
     padding: 1rem;
     margin: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 .card h1 {
     color: var(--card-header);
     font-size: 1.4rem;
+    background-color: rgba(0, 0, 0, 0.378);
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 2px 4px;
+    margin-right: 0;
+    align-self: center;
     
 }
 

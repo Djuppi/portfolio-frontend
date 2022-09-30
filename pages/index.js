@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import useIntro from 'helpers/useIntro';
 import { getCollections } from 'lib/unsplash';
 import { FiArrowRight } from 'react-icons/fi';
+import ReactMarkdown from "react-markdown";
 
 const variants = {
   initial: { y: "10px", opcaity: 0 },
@@ -13,8 +14,17 @@ const variants = {
 }
 
 
-export default function Home({projects, photos}) {
+export default function Home(props) {
   const showAnimation = useIntro();
+
+  const { 
+    projects,
+    photos,
+    title,
+    intro,
+    about,
+    projectTitle
+   } = props;
 
   return (
     <Layout title="Djuppi">
@@ -30,7 +40,7 @@ export default function Home({projects, photos}) {
             transition={{delay: 1, y: { type: "spring"}}}
             variants={variants}
           >
-            Welcome, my name is Aske
+            {title[0]}
           </motion.h1>
           <motion.h2
             initial={showAnimation ? "initial" : { opacity: 1 }}
@@ -38,7 +48,7 @@ export default function Home({projects, photos}) {
             transition={{delay: 2, y: { type: "spring"}}}
             variants={variants}
           >
-              I&apos;m a frontend developer
+            {title[1]}
           </motion.h2>
           <motion.p
             initial={showAnimation ? "initial" : { opacity: 1 }}
@@ -46,7 +56,7 @@ export default function Home({projects, photos}) {
             transition={{delay: 3, y: { type: "spring"}}}
             variants={variants}
           >
-              specialized in JS and React
+              {title[2]}
           </motion.p>
         </div>
         <motion.div
@@ -56,8 +66,7 @@ export default function Home({projects, photos}) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}
         >
-          <p>On this page you&apos;ll get to know a little bit of me and what I do. Below you can read a little about me, see my recent projects and connect with me on social media.</p>
-          <p>At the top right, you can open the menu, where you will be able to navigate through this website and change the theme.</p>
+          <ReactMarkdown children={intro} />
         </motion.div>
 
         <motion.div
@@ -67,9 +76,7 @@ export default function Home({projects, photos}) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
-          <h3>Short about me</h3>
-          <p>I&apos;m a 30 year old danish guy currently living in Oslo, Norway. Right now I&apos;m working at Onecall, a telecom company in Norway, owned by Telia Norway, positioned as a frontend developer.</p>
-          <p>In addition I&apos;m the TeamLead for our technical department, which enabling me to live out my natural leader instinct.</p>
+         <ReactMarkdown children={about} />
         </motion.div>
 
         <motion.div 
@@ -79,7 +86,7 @@ export default function Home({projects, photos}) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
-          <h4>My most recent projects</h4>
+          <h4>{projectTitle}</h4>
           <div className={styles.projects}>
             {projects.map((project, key) => {
               return <ProjectCard id={key+1} key={key} project={project} photo={photos[key]} />
@@ -101,17 +108,29 @@ export default function Home({projects, photos}) {
 export const getStaticProps = async () => {
     const repos = await fetch('http://localhost:3000/api/github?sort=created', {
         method: 'GET',
-    })
+    });
+
+    const pageContent = await fetch("http://localhost:1337/api/homepage");
+
+    const homePage = await pageContent.json();
+    const title = homePage.data.attributes.title.split('\n');
+
+    const { intro, about, projectTitle } = homePage?.data?.attributes;
 
 
     const repoData = await repos.json();
 
     const photos = await getCollections();
+    console.log(photos);
 
     return {
         props: {
           projects: repoData.filteredRepos.slice(0,4),
           photos,
+          title,
+          intro,
+          about,
+          projectTitle
         }
     }
 }
