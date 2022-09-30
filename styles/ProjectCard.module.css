@@ -48,6 +48,7 @@
     margin: 4rem auto;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .link a {

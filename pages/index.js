@@ -121,7 +121,6 @@ export const getStaticProps = async () => {
     const repoData = await repos.json();
 
     const photos = await getCollections();
-    console.log(photos);
 
     return {
         props: {

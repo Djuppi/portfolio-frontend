@@ -56,6 +56,7 @@ export const ProjectCard = ({project, photo}) => {
                 <motion.div 
                   className={styles.link}
                   animate={isHovered ? "textVisible" : "textHidden"}
+
                   variants={variants}
                   initial="textHidden"
                   whileHover="buttonHover"

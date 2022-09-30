@@ -1,5 +1,3 @@
-
-
 export default async (req, res) => {
     const { sort } = req?.query;
     if(req.method === 'GET') {
@@ -12,29 +10,25 @@ export default async (req, res) => {
                 Authorization: process.env.GITHUB_ACCESS_KEY
             }
         });
-
-
         const filteredRepos = [];
 
         const repos = await githubRes.json();
         
         if(githubRes.ok) {
-            repos.forEach(element => {
-                
-                
+            repos.forEach(repo => {
 
-                const newName = (element.name[0].toUpperCase() + element.name.slice(1)).replaceAll('-', ' ').replace('frontend', '');
+
+                const newName = (repo.name[0].toUpperCase() + repo.name.slice(1)).replaceAll('-', ' ').replace('frontend', '');
                 const project = {};
                 
-                project.id = element.id;
+                project.id = repo.id;
                 project.name = newName;
-                project.url = element.url;
-                project.description = element.description;
-                project.topics = element.topics;
-                project.homepage = element.homepage;
-                project.homepageImage = `https://raw.githubusercontent.com/djuppi/${element.name}/master/public/images/homepage-thumb.png`;
-                project.readMe = `https://raw.githubusercontent.com/djuppi/${element.name}/master/README.md`;
-                project.topics.includes('onportfolio') && filteredRepos.push(project);
+                project.url = repo.url;
+                project.description = repo.description;
+                project.topics = repo.topics.filter(topic => topic !== 'onportfolio');
+                project.homepage = repo.homepage;
+                project.homepageImage = `https://raw.githubusercontent.com/djuppi/${repo.name}/master/public/images/homepage-thumb.png`;
+                repo.topics.includes('onportfolio') && filteredRepos.push(project);
             });
             
             res.status(200).json({filteredRepos});

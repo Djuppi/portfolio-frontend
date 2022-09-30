@@ -13,3 +13,21 @@
 .description {
     font-size: 1.6rem;
 }
+
+.topicsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.topicsContainer div {
+    margin: 0 1rem;
+    background-color: var(--header-bg);
+    padding: 0 1rem;
+    border-radius: 30px;
+    width: fit-content;
+    min-width: 10rem;
+}
+
+.topicsContainer p {
+    font-size: 1.2rem;
+}

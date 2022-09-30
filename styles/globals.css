@@ -3,6 +3,7 @@
   --header-primary: #dac0a6;
   --header-secondary: rgb(0, 0, 0);
   --header-color: #f5c3ae;
+  --header-bg: #00000031;
   --menu-bg-color: #dac0a6;
   --card-header: var(--header-primary);
   --text-color-primary: rgb(255, 255, 255);
@@ -85,6 +86,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--text-color-primary);
   
+}
+
+p {
+  font-size: 1.6rem;
 }
 
 a {
