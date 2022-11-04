@@ -1,10 +1,11 @@
 import Layout from "@/components/Layout";
 import styles from '@/styles/About.module.css';
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Events from '../api/data/timeline.json';
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
-export default function About({title, richtext}) {
+export default function About({title, aboutsection}) {
     const [noOfEvents, setNoOfEvents] = useState(3);
     const firstList = Events.slice(0,noOfEvents);
     const secondList = Events.slice(noOfEvents, noOfEvents+noOfEvents);
@@ -13,10 +14,19 @@ export default function About({title, richtext}) {
         <Layout title="About">
             <div className={styles.container}>
                 <h1>{title}</h1>
-                <p>Underneath you can choose to read about me or scroll through the interactive timeline to see the biggest events of my life.</p>
+                {/*<p>Underneath you can choose to read about me or scroll through the interactive timeline to see the biggest events of my life.</p>*/}
 
                 <div>
-                    <ReactMarkdown children={richtext} />
+                    {aboutsection.map(section => {
+                        const thumbImg = section?.image?.data?.[0].attributes?.formats?.small;
+                        return (
+                            <section key={section.id} className={styles.section}>
+                                {thumbImg && <Image src={thumbImg.url} width={200} height={200} />}
+                                <ReactMarkdown children={section.text} />
+                            </section>
+                            
+                        )
+                    })}
                 </div>
                 
                 {/*<div className={styles.timelineContainer}>
@@ -47,12 +57,13 @@ export const getStaticProps = async () => {
 
     const aboutPage = await pageContent.json();
 
-    const { title, richtext } = aboutPage?.data?.attributes;
+    const { title, richtext, aboutsection } = aboutPage?.data?.attributes;
 
     return {
         props: {
             title,
-            richtext
+            richtext,
+            aboutsection
         }
     }
 }

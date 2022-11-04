@@ -11,7 +11,7 @@ export default function ProjectPage({ projects, photos }) {
         <Layout title="Projects">
             <div className={styles.container}>
             <h1 className={styles.header}>My projects</h1>
-            <p className={styles.projectDesc}>Here you see all my finished projects. </p>
+            <p className={styles.projectDesc}>Here you see all my finished and some of my ongoing projects. </p>
             
             <div className={styles.projects}>  
                 {projects.map((project, key) => {
@@ -24,7 +24,7 @@ export default function ProjectPage({ projects, photos }) {
 }
 
 export const getServerSideProps = async () => {
-    const repos = await fetch('http://localhost:3000/api/github', {
+    const repos = await fetch('http://localhost:3005/api/github', {
         method: 'GET',
     })
     const data = await repos.json();

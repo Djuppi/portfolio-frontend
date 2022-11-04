@@ -1,14 +1,45 @@
 .container {
     grid-column-start: 2;
     grid-row: 2;
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .container p {
     font-size: 1.6rem;
 }
+
+.section {
+    margin-bottom: 4rem;
+}
+
+.section span img {
+    border-radius: 5px;
+    margin: 2rem;
+}
+
+.section:nth-of-type(2) p {
+    text-align: center;
+    margin-left: 2rem;
+}
+
+.section:nth-of-type(2) span {
+    float: left;
+    margin-right: auto;
+}
+
+.section:nth-of-type(3) p {
+    text-align: center;
+    margin-left: 2rem;
+}
+
+.section:nth-of-type(3) span span {
+    float: right;
+    border: 2rem solid transparent;
+}
+
+
 
 .timelineContainer {
     overflow-y: scroll;
@@ -129,6 +160,7 @@
 
     .container {
         grid-column: 1 2;
+        height: auto;
     }
     .timelineContainer {
         padding: 0;
@@ -142,6 +174,17 @@
     .timelineContainer ul li .date > span:nth-child(2):after {
         left:-26.5px;
         top: 0px
+    }
+
+    .section:nth-child(2) p,
+    .section:nth-child(3) p {
+        margin-left: 0;
+    }
+
+
+    .section:nth-child(2) span,
+    .section:nth-child(3) span {
+        float: none;
     }
 
 }

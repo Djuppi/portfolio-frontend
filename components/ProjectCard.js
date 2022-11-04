@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from '@/styles/ProjectCard.module.css';
 import Link from "next/link";
+import classNames from "classnames";
 
 const variants = {
   // Animations for the card box
@@ -14,6 +15,7 @@ const variants = {
   textVisible: { opacity: 1, y: "20px", transition: { duration: .2 } },
   textHidden: { opacity: 0, y: "40px", transition: { duration: .2 } },
   // Animations for the button
+  buttonInitial: { textDecoration: 'none' },
   buttonHover: { backgroundColor: "var(--hover-color-primary)", textDecoration: "underline", transition: { duration: .2 } },
 }
 
@@ -29,7 +31,7 @@ export const ProjectCard = ({project, photo}) => {
 
     return (
         <motion.div
-          className={styles.card} 
+          className={!project.isFinished ? styles.card : `${styles.card} ${styles.ongoing}`} 
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           style={imageStyles}
@@ -58,7 +60,7 @@ export const ProjectCard = ({project, photo}) => {
                   animate={isHovered ? "textVisible" : "textHidden"}
 
                   variants={variants}
-                  initial="textHidden"
+                  initial="buttonInitial"
                   whileHover="buttonHover"
                 >
                   See more

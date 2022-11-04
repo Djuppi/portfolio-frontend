@@ -20,6 +20,21 @@
     align-content: center;
 }
 
+.ongoing::after {
+    content: 'Ongoing';
+    font-size: 1.4rem;
+    width: 100px;
+    height: 20px;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: 17px;
+    right: -23px;
+    background-color: var(--background-primary);
+    border-color: transparent transparent transparent #000000;
+    border-width: 17px 32px;
+    transition: all .3s ease-in-out;
+}
+
 .card h1 {
     color: var(--card-header);
     font-size: 1.4rem;

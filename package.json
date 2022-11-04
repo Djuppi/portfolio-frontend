@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3005",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^12.2.5",
     "classnames": "^2.3.1",
+    "cloudinary": "^1.32.0",
     "cross-env": "^7.0.3",
     "framer-motion": "^6.2.8",
     "next": "^12.2.5",

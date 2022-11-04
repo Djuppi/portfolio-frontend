@@ -2,12 +2,13 @@ export default async (req, res) => {
     const { sort } = req?.query;
     if(req.method === 'GET') {
         // @To Do: Move to config.
-        const API_URL = `https://api.github.com/users/djuppi/repos?sort=${sort}`;
+        const API_URL = `https://api.github.com/user/repos?sort=${sort}`;
 
         const githubRes = await fetch(`${API_URL}`, {
             method: 'GET',
             headers: {
-                Authorization: process.env.GITHUB_ACCESS_KEY
+                Accept: "application/vnd.github+json",
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}` 
             }
         });
         const filteredRepos = [];
@@ -18,7 +19,8 @@ export default async (req, res) => {
             repos.forEach(repo => {
 
 
-                const newName = (repo.name[0].toUpperCase() + repo.name.slice(1)).replaceAll('-', ' ').replace('frontend', '');
+                const newName = (repo.name[0].toUpperCase() + repo.name.slice(1)).replaceAll('-', ' ').replace('frontend', '').trim();
+                
                 const project = {};
                 
                 project.id = repo.id;
@@ -26,9 +28,10 @@ export default async (req, res) => {
                 project.url = repo.url;
                 project.description = repo.description;
                 project.topics = repo.topics.filter(topic => topic !== 'onportfolio');
-                project.homepage = repo.homepage;
-                project.homepageImage = `https://raw.githubusercontent.com/djuppi/${repo.name}/master/public/images/homepage-thumb.png`;
+                project.homepage = newName !== 'Mollenes' && repo.homepage;
+                project.homepageImage = `https://raw.githubusercontent.com/djuppi/${repo.name}/master/public/images/homepage_small.png`;
                 repo.topics.includes('onportfolio') && filteredRepos.push(project);
+                project.isFinished = !repo.topics.includes('ongoing')
             });
             
             res.status(200).json({filteredRepos});

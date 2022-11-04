@@ -106,7 +106,7 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-    const repos = await fetch('http://localhost:3000/api/github?sort=created', {
+    const repos = await fetch('http://localhost:3005/api/github?sort=created', {
         method: 'GET',
     });
 

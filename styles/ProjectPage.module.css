@@ -1,10 +1,10 @@
 .container {
     grid-column-start: 2;
     grid-row: 2;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
+    height: 100vh;
 }
 
 .header {
@@ -27,6 +27,10 @@
 }
 
 @media (max-width: 768px) {
+
+    .container {
+        height: auto;
+    }
 
     .projectDesc {
         text-align: center;

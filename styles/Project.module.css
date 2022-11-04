@@ -6,6 +6,18 @@
     flex-direction: column;
 }
 
+.back {
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+    color: var(--link-color);
+    cursor: pointer;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
 .title {
     font-size: 4rem;
 }

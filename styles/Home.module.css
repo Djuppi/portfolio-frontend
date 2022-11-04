@@ -49,8 +49,6 @@
   }
 }
 
-
-
 .infoContainer {
   margin: 5rem 0;
   width: 70%;
@@ -236,7 +234,7 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   .grid {
     width: 100%;
     flex-direction: column;
