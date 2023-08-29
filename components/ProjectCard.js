@@ -31,7 +31,7 @@ export const ProjectCard = ({project, photo}) => {
 
     return (
         <motion.div
-          className={!project.isFinished ? styles.card : `${styles.card} ${styles.ongoing}`} 
+          className={project.isFinished ? styles.card : `${styles.card} ${styles.ongoing}`} 
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           style={imageStyles}

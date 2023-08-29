@@ -16,9 +16,13 @@ export default function Project ({repo}) {
             <div className={styles.container}>
             <button className={styles.back} onClick={() => router.back()}>Go back</button>
                 <h1 className={styles.title}>{repo.name}</h1>
-                <p className={styles.description}>{repo.description}</p>
+                <div className={styles.description}>
+                  <ReactMarkdown>
+                    {repo.description}
+                  </ReactMarkdown>
+                  </div>
 
-                {repo.homepage && <p>Visit the page <a href={repo.homepage} rel="norefferer" target="_blank">here</a></p>}
+                {repo.homepage && <p>Visit the page <a href={repo.homepage} rel="noreferrer" target="_blank">here</a></p>}
                 {repo.homepageImage && (
                   <figure className={styles.imageContainer}>
                     <Image src={repo.homepageImage} alt='' width="500" height={240}/>

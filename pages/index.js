@@ -40,7 +40,7 @@ export default function Home(props) {
             transition={{delay: 1, y: { type: "spring"}}}
             variants={variants}
           >
-            {title[0]}
+            Frontend Developer
           </motion.h1>
           <motion.h2
             initial={showAnimation ? "initial" : { opacity: 1 }}
@@ -48,7 +48,7 @@ export default function Home(props) {
             transition={{delay: 2, y: { type: "spring"}}}
             variants={variants}
           >
-            {title[1]}
+            specialised in Javascript and React
           </motion.h2>
           <motion.p
             initial={showAnimation ? "initial" : { opacity: 1 }}
@@ -56,7 +56,7 @@ export default function Home(props) {
             transition={{delay: 3, y: { type: "spring"}}}
             variants={variants}
           >
-              {title[2]}
+              with excellent leadership skills.
           </motion.p>
         </div>
         <motion.div
@@ -66,7 +66,8 @@ export default function Home(props) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}
         >
-          <ReactMarkdown children={intro} />
+          Intro
+          {/*<ReactMarkdown children={intro} />*/}
         </motion.div>
 
         <motion.div
@@ -76,7 +77,8 @@ export default function Home(props) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
-         <ReactMarkdown children={about} />
+          About Me
+         {/*<ReactMarkdown children={about} />*/}
         </motion.div>
 
         <motion.div 
@@ -86,7 +88,7 @@ export default function Home(props) {
           transition={{delay: 4.8, y: { type: "spring"}}}
           variants={variants}  
         >
-          <h4>{projectTitle}</h4>
+          <h4>My projects</h4>
           <div className={styles.projects}>
             {projects.map((project, key) => {
               return <ProjectCard id={key+1} key={key} project={project} photo={photos[key]} />
@@ -110,12 +112,12 @@ export const getStaticProps = async () => {
         method: 'GET',
     });
 
-    const pageContent = await fetch("http://localhost:1337/api/homepage");
+    //const pageContent = await fetch("http://localhost:1337/api/homepage");
 
-    const homePage = await pageContent.json();
-    const title = homePage.data.attributes.title.split('\n');
+    //const homePage = await pageContent.json();
+    //const title = homePage.data.attributes.title.split('\n');
 
-    const { intro, about, projectTitle } = homePage?.data?.attributes;
+    //const { intro, about, projectTitle } = homePage?.data?.attributes;
 
 
     const repoData = await repos.json();
@@ -126,10 +128,10 @@ export const getStaticProps = async () => {
         props: {
           projects: repoData.filteredRepos.slice(0,4),
           photos,
-          title,
-          intro,
-          about,
-          projectTitle
+          //title,
+          //intro,
+          //about,
+          //projectTitle
         }
     }
 }
